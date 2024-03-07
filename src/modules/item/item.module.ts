@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { ItemResolver } from './item.resolver';
-import { ItemService } from './item.service';
 import { PrismaClient } from '@prisma/client';
+import { ItemResolver } from '../item/resolvers/index';
+import { ItemService } from './services/index';
 @Module({
   providers: [ItemResolver,ItemService,PrismaClient]
   

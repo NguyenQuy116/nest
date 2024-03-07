@@ -14,15 +14,19 @@ type Query {
 }
 
 type Mutation {
-  createItem(item: ItemInput!): Item!
-  findOneById(id: Float!): Item!
+  createItem(item: createInput!): Item!
+  findOneById(input: idInput!): Item!
   update(item: UpdateItemInput!): Item!
-  deleteItem(id: Float!): Boolean!
+  deleteItem(id: idInput!): Boolean!
 }
 
-input ItemInput {
+input createInput {
   name: String!
   quantity: Int
+}
+
+input idInput {
+  id: Float!
 }
 
 input UpdateItemInput {

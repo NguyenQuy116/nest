@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import { ItemInput, UpdateItemInput } from './input';
-import { Item } from './entity';
+import { createInput,UpdateItemInput } from '../inputs/index';
+
+import { Item } from '../../../Entities/item.entity';
 
 @Injectable()
 export class ItemService {
@@ -12,7 +13,7 @@ export class ItemService {
 
     return items;
   }
-  async create(input: ItemInput): Promise<Item> {
+  async create(input: createInput): Promise<Item> {
     const newItem = await this.prisma.item.create({
       data: {
         name: input.name,
